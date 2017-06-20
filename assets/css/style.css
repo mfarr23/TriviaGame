@@ -1,0 +1,60 @@
+
+html, body{
+  height:100%;
+}
+
+body{
+  text-align: center;
+}
+
+#wrapper{
+  margin:2.3% auto;
+  background-color: black;
+  width:100%;
+  height: 95%;
+  box-sizing: border-box;
+}
+
+#subwrapper{
+  position: relative;
+  top:15%;
+}
+button{
+  display:block;
+  width:50%;
+  height:20%;
+  margin: 0 auto;
+  background: yellow;
+  border:none;
+  font-size: 32px;;
+}
+
+h1{
+  font-size: 6em;
+  font-weight: bold;
+  color:white;
+  padding-top: 2.5%;
+}
+
+h2{
+  font-size: 32px;
+  color:white;
+  margin-bottom: 25px;
+}
+
+h3{
+  font-size: 32px;
+  margin-bottom: 10px;
+  color:white;
+}
+
+#start{
+  margin-top: 10%;
+  border:2px solid blue;
+  background: white;
+}
+
+button:hover {
+  border:2px solid blue;
+  background: orange;
+}
