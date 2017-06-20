@@ -1,9 +1,8 @@
 $(document).ready(function(){
 
 // setting viewer equal to test id on html
-// making the counter 144 for Wonderlic test
 var viewer = $('#test');
-var countStartNumber = 14;
+var countStartNumber = 20;
 
 // click events here
 // click event to reset game
@@ -18,7 +17,7 @@ $(document).on('click', '.answer-button', function(e) {
 
 // when start button clicked, add timer and question to screen
 $(document).on('click', '#start', function(e) {
-  $('#subwrapper').prepend('<h2>Time Left: <span id="counter-number">14</span> Seconds</h2>');
+  $('#subwrapper').prepend('<h2>Time Left: <span id="counter-number">20</span> Seconds</h2>');
   game.loadQuestion();
 });
 
@@ -98,6 +97,8 @@ var questions = [
 
 // function to reset timer, load question on screen and the buttons for answers
 		loadQuestion: function(){
+		console.log(questions[this.currentQuestion]);
+
 		    timer = setInterval(game.countdown, 1000);
 		    viewer.html('<h2>' + questions[this.currentQuestion].question + '</h2>' );
 		    for (var i = 0; i<questions[this.currentQuestion].answers.length; i++){
@@ -118,16 +119,16 @@ var questions = [
     		viewer.html('<h2>Out of Time!</h2>');
     		viewer.append('<h3>The Correct Answer was: ' + questions[this.currentQuestion].correctAnswer);
     			if (game.currentQuestion === questions.length - 1){
-      				setTimeout(game.results, 3 * 1000);
+      				setTimeout(game.results, 1000);
     			} else {
-      				setTimeout(game.nextQuestion, 3 * 1000);
+      				setTimeout(game.nextQuestion, 1000);
     			}
   		},		
 // function to print all info about your performance
     	results: function() {
     		clearInterval(timer);
 		    $('#counter-number').html(game.counter);
-		    viewer.append('<h3>Correct Answers: ' + game.correct + '</h3>');
+		    viewer.append('<h3>Correct Answers/Wonderlic Score: ' + game.correct + '</h3>');
 		    viewer.append('<h3>Incorrect Answers: ' + game.incorrect + '</h3>');
 		    viewer.append('<h3>Unanswered: ' + (questions.length - (game.incorrect + game.correct)) + '</h3>');
 		    viewer.append('<br><button id="start-over">Start Over?</button>');
@@ -140,6 +141,7 @@ var questions = [
 	      this.answeredCorrectly();
 	    } else {
 	      this.answeredIncorrectly();
+
 	    }
 	  	},
 // function if incorrect answer is chosen
@@ -150,9 +152,9 @@ var questions = [
 		    viewer.append('<h3>The Correct Answer was: ' + questions[game.currentQuestion].correctAnswer + '</h3>');
 
 		    if (game.currentQuestion === questions.length - 1){
-		      setTimeout(game.results, 3 * 1000);
+		      setTimeout(game.results, 1000);
 		    } else {
-		      setTimeout(game.nextQuestion, 3 * 1000);
+		      setTimeout(game.nextQuestion, 1000);
 		    }
 		},
 // function if correct answer is chosen
@@ -162,9 +164,9 @@ var questions = [
 		    viewer.html('<h2>Right!</h2>');
 
 		    if (game.currentQuestion === questions.length - 1){
-		      setTimeout(game.results, 3 * 1000);
+		      setTimeout(game.results, 1000);
 		    } else {
-		      setTimeout(game.nextQuestion, 3 * 1000);
+		      setTimeout(game.nextQuestion, 1000);
 		    }
 		  },
 // reset function to start game over
